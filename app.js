@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dbRecord = require('./models/urldb');
+const dotenv = require('dotenv');
 
 const app = express();
 
@@ -11,7 +12,10 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/urlDbs');
+dotenv.config();
+let dbUrl = process.env.MONGOLAB_URI;
+
+mongoose.connect(dbUrl || 'mongodb://localhost/urlDbs');
 mongoose.Promise = global.Promise;
 
 app.get('/favicon.ico', (req, res) =>{
