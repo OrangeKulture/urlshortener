@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="shortURL">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/layout.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Special+Elite');
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1> URL Shortener MicroService </h1>
+    <h3> Instructions </h3>
+      <p>Enter a URL below and hit the button to get a shortened version.</p>
+      <p>Once you have the shortUrl code, copy and paste in the address bar as such:</p>
+      <code>https://shorturl-ja.heroku.com/45875</code>
+    <div class="userText" ng-controller="shortURLCtrl">
+      <input type="text" placeholder="Enter URL" ng-model="urlToShort"><br />
+      <a class="btn btn-warning btn-lg" ng-href="/new/{{urlToShort}}">Short URL</a>
+    </div>
+
+    <footer>
+        <h4>Coded by Jorge A</h4>
+        <h5> Techs : HTML, CSS, Bootstrap, JavaScript, Express, NodeJS, Mongoose, MongoDB </h5>
+    </footer>
+  </div>
+</body>
+</html>
